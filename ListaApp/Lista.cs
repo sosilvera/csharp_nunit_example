@@ -7,7 +7,7 @@ public class Lista{
     }
 
     public int getHead(){
-        return lista[0];
+        return lista[1];
     }
 
     public int[] getTail(){
