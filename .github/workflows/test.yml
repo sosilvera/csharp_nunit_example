@@ -1,0 +1,31 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restaurar dependencias
+        run: dotnet restore
+
+      - name: Compilar
+        run: dotnet build --no-restore
+
+      - name: Correr tests
+        run: dotnet test --no-build --logger "trx;LogFileName=resultados.trx" --collect:"XPlat Code Coverage" --results-directory ./TestResults
+
+      - name: Subir reportes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults

@@ -10,7 +10,7 @@ public class ListaTests
 
         int result = l.getHead(); // Act
 
-        Assert.That(actual: result, Is.EqualTo(expected: 2)); // Assert
+        Assert.That(actual: result, Is.EqualTo(expected: lista[0])); // Assert
     }
 
     [Test]
