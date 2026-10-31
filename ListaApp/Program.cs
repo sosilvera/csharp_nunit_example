@@ -8,7 +8,7 @@ namespace Program{
             Lista l = new Lista(lista);
             l.mostrar();        
             l.ordenar();
-            Console.WriteLine("\n");
+            Console.WriteLine("");
             l.mostrar();
             Console.WriteLine(l.getHead());
         }
