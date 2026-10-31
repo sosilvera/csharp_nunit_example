@@ -29,3 +29,9 @@ jobs:
         with:
           name: test-results
           path: TestResults
+      
+      - name: Resumen de tests
+        if: always()
+        uses: test-summary/action@v2
+        with:
+          paths: "TestResults/**/*.trx"
